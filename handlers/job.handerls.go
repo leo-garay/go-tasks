@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"leo-garay/go-tasks/data"
 	"leo-garay/go-tasks/models"
 	"net/http"
 )
@@ -29,4 +30,8 @@ func Create(w http.ResponseWriter, r *http.Request) {
 
 func CreateError(w http.ResponseWriter, r *http.Request) {
 	 	 http.Error(w, "Conflict", http.StatusConflict) 	   
+}
+func GetJobs(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(data.JobsData)
 }
