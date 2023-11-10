@@ -22,7 +22,6 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	json.Unmarshal(reqBody, &job)
 	data.JobsData = append(data.JobsData, job) 
 
-
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(job)
